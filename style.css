@@ -6,7 +6,7 @@ body {
     background-color: #eec4e5;
 }
 
-#noButton {
+#MoveButton {
     position: absolute;
     margin-left: 150px;
     transition: 0.5s;
