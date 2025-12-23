@@ -72,23 +72,11 @@
         window.location.href = "yes.html";
       }
 
-      function moveButton() {
-        const button = document.getElementById("noButton");
-        const stage = document.querySelector(".stage");
-
-        const stageRect = stage.getBoundingClientRect();
-        const bw = button.offsetWidth;
-        const bh = button.offsetHeight;
-
-        const pad = 12; // keeps it away from edges
-        const maxX = Math.max(0, stageRect.width - bw - pad * 2);
-        const maxY = Math.max(0, stageRect.height - bh - pad * 2);
-
-        const x = pad + Math.random() * maxX;
-        const y = pad + Math.random() * maxY;
-
-        button.style.left = `${x}px`;
-        button.style.top = `${y}px`;
+     function moveButton() {
+                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
+                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
+                        document.getElementById('noButton').style.left = `${x}px`;
+                        document.getElementById('noButton').style.top = `${y}px`;
       }
     </script>
   </body>
