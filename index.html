@@ -1,24 +1,95 @@
-<script>
-  function nextPage() {
-    window.location.href = "yes.html";
-  }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
 
-  function moveButton() {
-    const button = document.getElementById("noButton");
-    const stage = document.querySelector(".stage");
+      .stage {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
 
-    const stageRect = stage.getBoundingClientRect();
-    const bw = button.offsetWidth;
-    const bh = button.offsetHeight;
+      .container {
+        text-align: center;
+        margin-top: 100px;
+      }
 
-    const pad = 12; // optional padding from edges
-    const maxX = Math.max(0, stageRect.width - bw - pad * 2);
-    const maxY = Math.max(0, stageRect.height - bh - pad * 2);
+      .btn {
+        position: absolute;
+        padding: 10px 20px;
+        font-size: 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: #ff7aa8;
+      }
 
-    const x = pad + Math.random() * maxX;
-    const y = pad + Math.random() * maxY;
+      #yesButton {
+        left: 45%;
+        top: 60%;
+      }
 
-    button.style.left = `${x}px`;
-    button.style.top = `${y}px`;
-  }
-</script>
+      #noButton {
+        left: 55%;
+        top: 60%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="stage">
+      <div class="container">
+        <h1 class="header_text">Vintaks, do you love me or not?</h1>
+
+        <div class="gif_container">
+          <img
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
+            alt="Cute animated illustration"
+          />
+        </div>
+
+        <div class="buttons">
+          <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+          <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function nextPage() {
+        window.location.href = "yes.html";
+      }
+
+      function moveButton() {
+        const button = document.getElementById("noButton");
+        const stage = document.querySelector(".stage");
+
+        const stageRect = stage.getBoundingClientRect();
+        const bw = button.offsetWidth;
+        const bh = button.offsetHeight;
+
+        const pad = 12; // keeps it away from edges
+        const maxX = Math.max(0, stageRect.width - bw - pad * 2);
+        const maxY = Math.max(0, stageRect.height - bh - pad * 2);
+
+        const x = pad + Math.random() * maxX;
+        const y = pad + Math.random() * maxY;
+
+        button.style.left = `${x}px`;
+        button.style.top = `${y}px`;
+      }
+    </script>
+  </body>
+</html>
