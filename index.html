@@ -51,21 +51,26 @@
         window.location.href = "yes.html";
       }
 
-      function moveButton() {
-        const button = document.getElementById("noButton");
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-        const buttonWidth = button.offsetWidth;
-        const buttonHeight = button.offsetHeight;
+    function moveButton() {
+    const button = document.getElementById("noButton");
 
-        // calculate a random new position within window bounds
-        const x = Math.random() * (screenWidth - buttonWidth - 50);
-        const y = Math.random() * (screenHeight - buttonHeight - 50);
+    // viewport size (visible area)
+    const vw = document.documentElement.clientWidth;
+    const vh = document.documentElement.clientHeight;
 
-        // move smoothly to the new position
-        button.style.transition = "all 0.3s ease";
-        button.style.left = `${x}px`;
-        button.style.top = `${y}px`;
+    // button size
+    const bw = button.offsetWidth;
+    const bh = button.offsetHeight;
+
+    // safe max positions (never let it go outside)
+    const maxX = Math.max(0, vw - bw);
+    const maxY = Math.max(0, vh - bh);
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    button.style.left = `${x}px`;
+    button.style.top = `${y}px`;
       }
     </script>
   </body>
