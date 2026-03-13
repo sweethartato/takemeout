@@ -72,16 +72,17 @@
         window.location.href = "yes.html";
       }
 
-     function moveButton() {
-          const btn = document.getElementById('noButton');
-          const maxX = window.innerWidth - btn.offsetWidth;
-          const maxY = window.innerHeight - btn.offsetHeight;
-          
-          const x = Math.random() * maxX;
-          const y = Math.random() * maxY;
-          
-          btn.style.left = `${x}px`;
-          btn.style.top = `${y}px`;
+  function moveButton() {
+  const btn = document.getElementById('noButton');
+  const btnW = btn.offsetWidth || 80;
+  const btnH = btn.offsetHeight || 45;
+  const padding = 10;
+
+  const x = padding + Math.random() * (window.innerWidth - btnW - padding * 2);
+  const y = padding + Math.random() * (window.innerHeight - btnH - padding * 2);
+
+  btn.style.left = `${x}px`;
+  btn.style.top = `${y}px`;
 }
     </script>
   </body>
