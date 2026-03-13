@@ -5,26 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <style>
-      html,
-      body {
+      html, body {
         margin: 0;
         padding: 0;
         height: 100%;
         overflow: hidden;
       }
-
       .stage {
         position: relative;
         width: 100vw;
         height: 100vh;
         overflow: hidden;
       }
-
       .container {
         text-align: center;
         margin-top: 100px;
       }
-
       .btn {
         position: absolute;
         padding: 10px 20px;
@@ -35,36 +31,31 @@
         transition: all 0.3s ease;
         background-color: #ff7aa8;
       }
-
       #yesButton {
         left: 45%;
         top: 60%;
       }
-
       #noButton {
         left: 55%;
         top: 60%;
       }
     </style>
   </head>
-
   <body>
     <div class="stage">
       <div class="container">
-        <h1 class="header_text">Taks, do you love me or not?</h1>
-
+        <h1 class="header_text">Vintaks, do you love me or not?</h1>
         <div class="gif_container">
           <img
             src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
             alt="Cute animated illustration"
           />
         </div>
-
-        <div class="buttons">
-          <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-          <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
-        </div>
       </div>
+
+      <!-- Buttons outside .container, directly inside .stage -->
+      <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+      <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
     </div>
 
     <script>
@@ -72,18 +63,18 @@
         window.location.href = "yes.html";
       }
 
-  function moveButton() {
-  const btn = document.getElementById('noButton');
-  const btnW = btn.offsetWidth || 80;
-  const btnH = btn.offsetHeight || 45;
-  const padding = 10;
+      function moveButton() {
+        const btn = document.getElementById('noButton');
+        const btnW = btn.offsetWidth || 80;
+        const btnH = btn.offsetHeight || 45;
+        const padding = 10;
 
-  const x = padding + Math.random() * (window.innerWidth - btnW - padding * 2);
-  const y = padding + Math.random() * (window.innerHeight - btnH - padding * 2);
+        const x = padding + Math.random() * (window.innerWidth - btnW - padding * 2);
+        const y = padding + Math.random() * (window.innerHeight - btnH - padding * 2);
 
-  btn.style.left = `${x}px`;
-  btn.style.top = `${y}px`;
-}
+        btn.style.left = `${x}px`;
+        btn.style.top = `${y}px`;
+      }
     </script>
   </body>
 </html>
